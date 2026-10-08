@@ -1,13 +1,13 @@
 from classes1 import Team, Driver
-# your code here
 
 teams = {}
 
+# Task 2: Load the driver and team information from the CSV
 with open('f1_points.csv', 'r') as file:
-    next(file)
+    next(file)  # Skip the CSV header row
 
     for line in file:
-        data = line.split(',')
+        data = line.strip().split(',')
 
         driver = Driver(data[0], int(data[2]))
         team_name = data[1]
@@ -16,5 +16,3 @@ with open('f1_points.csv', 'r') as file:
             teams[team_name] = Team(team_name)
 
         teams[team_name].add_driver(driver)
-
-    
