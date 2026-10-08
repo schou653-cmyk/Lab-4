@@ -13,6 +13,8 @@ class Driver:
         It should return a string that describes this Driver. For example:
         "Carlos Sainz (200 pts)"
         """
+        return f'{self.name} has {self.points}'
+        
         pass # your code here
 
 
@@ -22,6 +24,8 @@ class Team:
         """
         :param name: the team's name
         """
+        self.name = name
+        self.name = []
         pass # your code here
 
     def add_driver(self, driver: Driver) -> None:
@@ -29,12 +33,22 @@ class Team:
         adds a Driver to this team (by appending it to self.drivers)
         :param driver: the Driver object to add to this Team
         """
+        self.driver.append(driver)
+
+
         pass # your code here
 
     def get_total_points(self) -> int:
         """
         :return: sum of points scored by this team's Drivers
         """
+        total = 0
+
+        for driver in self.driver:
+            total += driver.points
+
+        return total
+
         pass # your code here
 
     def __repr__(self) -> str:
@@ -43,6 +57,13 @@ class Team:
         It should return a string that describes this Team, for example:
         "FERRARI with drivers Carlos Sainz, Charles Leclerc. Total pts: 406"
         """
+
+        names =''
+
+        for driver in self.drivers:
+            names += driver.name
+
+        return f'{self.name} with {names}. Total point: {self.get_total_points()}'
         pass # your code here
     
     def __lt__(self, other) -> bool:
@@ -53,4 +74,12 @@ class Team:
         :param other: another Team object
         :return: True if this Team has less points than other
         """
+        self.other = other
+
+        other.get_total_points()
+
+        return self.get_total_points < other.get_total_points()
+
+        
+
         pass # your code here
