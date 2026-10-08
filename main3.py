@@ -17,4 +17,4 @@ with open('f1_points.csv', 'r') as file:
 
         teams[team_name].add_driver(driver)
 
-print(teams)
+    
