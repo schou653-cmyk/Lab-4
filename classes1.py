@@ -25,7 +25,7 @@ class Team:
         :param name: the team's name
         """
         self.name = name
-        self.name = []
+        self.drivers = []
         pass # your code here
 
     def add_driver(self, driver: Driver) -> None:
@@ -33,7 +33,8 @@ class Team:
         adds a Driver to this team (by appending it to self.drivers)
         :param driver: the Driver object to add to this Team
         """
-        self.driver.append(driver)
+
+        self.drivers.append(driver)
 
 
         pass # your code here
@@ -44,7 +45,7 @@ class Team:
         """
         total = 0
 
-        for driver in self.driver:
+        for driver in self.drivers:
             total += driver.points
 
         return total
@@ -61,9 +62,9 @@ class Team:
         names =''
 
         for driver in self.drivers:
-            names += driver.name
+            names += driver.name + ' , ' 
 
-        return f'{self.name} with {names}. Total point: {self.get_total_points()}'
+        return f'{self.name} with {names}. Total point: ({self.get_total_points()})'
         pass # your code here
     
     def __lt__(self, other) -> bool:
@@ -78,7 +79,7 @@ class Team:
 
         other.get_total_points()
 
-        return self.get_total_points < other.get_total_points()
+        return self.get_total_points() < other.get_total_points()
 
         
 
