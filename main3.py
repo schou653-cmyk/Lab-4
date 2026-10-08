@@ -16,3 +16,15 @@ with open('f1_points.csv', 'r') as file:
             teams[team_name] = Team(team_name)
 
         teams[team_name].add_driver(driver)
+
+
+# Task 3: Sort the Teams by total points scored
+sorted_teams = sorted(teams.values())
+
+print("--- F1 Teams Sorted by Points (Ascending) ---")
+for team in sorted_teams:
+    print(team)
+
+
+
+
